@@ -15,8 +15,8 @@
 # ---- YOUR APP STARTS HERE ----
 # -- Import section --
 from flask import Flask
-# from flask import render_template
-# from flask import request
+from flask import render_template
+from flask import request
 
 
 # -- Initialization section --
@@ -27,4 +27,20 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/index')
 def index():
-    return "hello world"
+    return render_template("index.html")
+
+
+@app.route('/results', methods=['GET', 'POST'])
+def capital():
+    if request.method=="GET":
+        return "Please fill the form before hand."
+    else:
+        # country = request.form['results']
+        # waterAnswer = waterConsumption(country)
+        capital = request.form['results']
+        capital_answer = capitals(capital)
+        return render_template("result.html", capital = capital, answer=capital_answer)
+
+def capitals(selection):
+    answers = {"NY": request.form['New York'], "CA": request.form['California'], "FL": request.form["Florida"],"TX":request.form["Austin"],"NC":request.form["Raleigh"]}
+    return answers[selection]
