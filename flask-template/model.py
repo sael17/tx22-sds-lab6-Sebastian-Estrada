@@ -12,3 +12,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+def checker(capitals):
+    correct_capital = {"NY": "albany", "CA": "sacramento","FL": "tallahassee", "TX": "austin", "NC": "raleigh"}
+    score = {}
+    for state in capitals:
+        if capitals[state].lower() == correct_capital[state]:
+            score[state] = 'correct'
+        else:
+            score[state] = 'incorrect. It should be '+correct_capital[state]
+    return score

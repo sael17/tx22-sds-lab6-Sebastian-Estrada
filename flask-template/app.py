@@ -15,9 +15,9 @@
 # ---- YOUR APP STARTS HERE ----
 # -- Import section --
 from flask import Flask
-# from flask import render_template
-# from flask import request
-
+from flask import render_template
+from flask import request
+from model import checker
 
 # -- Initialization section --
 app = Flask(__name__)
@@ -27,4 +27,14 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/index')
 def index():
-    return "hello world"
+    return render_template('index.html')
+
+@app.route('/results',methods=['GET','POST'])
+def check():
+    if request.method == "GET":
+        return "Please fill the form before hand."
+
+    else:
+        answers = {"NY": request.form['New York'], "CA": request.form['California'], "FL": request.form['Florida'],"TX":request.form['Texas'],"NC":request.form['Norh Carolina']}
+        score = checker(answers)
+        return render_template('results.html',score=score, answers = answers)
