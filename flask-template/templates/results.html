@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Flask Template</title>
+        <link rel="stylesheet" href="../static/css/style.css">
+    </head>
+    <body>
+        <h1>US State Capital Quiz</h1>
+        <p>Your results are as followed:</p>
+        <ul>
+            {% for state in score %}
+                <li>{{state}}: {{answers[state]}} is {{score[state]}}.</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
