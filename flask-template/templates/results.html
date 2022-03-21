@@ -7,9 +7,12 @@
         <h1>US State Capital Quiz</h1>
         <p>Your results are as followed:</p>
         <ul>
-            {% for state in score %}
-                <li>{{state}}: {{answers[state]}} is {{score[state]}}.</li>
+            {% for state in student_quiz_score %}
+                <li>{{state}}: {{student_answers[state]}} is {{student_quiz_score[state]}}</li>
             {% endfor %}
         </ul>
+        <span class="student__grade">
+            {{student_grade}}
+        </span>
     </body>
 </html>

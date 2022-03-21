@@ -14,10 +14,12 @@
 
 # ---- YOUR APP STARTS HERE ----
 # -- Import section --
+from multiprocessing.connection import answer_challenge
 from flask import Flask
 from flask import render_template
 from flask import request
-from model import checker
+from model import verify_answers
+from model import calculateQuizScore
 
 # -- Initialization section --
 app = Flask(__name__)
@@ -29,12 +31,15 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-@app.route('/results',methods=['GET','POST'])
-def check():
+@app.route("/results", methods=["GET","POST"])
+def quiz_validification():
+    # Student has not filled the quiz
     if request.method == "GET":
-        return "Please fill the form before hand."
-
+        return "Please Fill Out The Quiz Before Hand"
     else:
-        answers = {"NY": request.form['New York'], "CA": request.form['California'], "FL": request.form['Florida'],"TX":request.form['Texas'],"NC":request.form['Norh Carolina']}
-        score = checker(answers)
-        return render_template('results.html',score=score, answers = answers)
+        # Dictionary that contains the student's answers 
+        student_answers = {"NY": request.form['New York'], "CA": request.form['California'], "FL": request.form['Florida'],"TX":request.form['Texas'],"NC":request.form['Norh Carolina']}
+        student_quiz_score = verify_answers(student_answers)
+        student_grade = calculateQuizScore(student_answers)
+        return render_template("results.html", student_quiz_score=student_quiz_score,student_answers=student_answers,student_grade=student_grade)
+
