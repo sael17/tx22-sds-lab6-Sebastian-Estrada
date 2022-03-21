@@ -33,7 +33,7 @@ def verify_answers(students_answers):
         if students_answers[state].lower() == state_capitals[state]:
             student_quiz_result[state] = "Correct Answer. Great Job!"
         else:
-            student_quiz_result[state] = "Incorrect State :(. Good Luck Next Time!"
+            student_quiz_result[state] = "Incorrect Capital :(. Good Luck Next Time!"
             student_quiz_grade += 1
 
     return student_quiz_result

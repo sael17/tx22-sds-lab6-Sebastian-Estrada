@@ -1,20 +1,24 @@
 <html>
-    <head>
-        <title>Flask Template</title>
-        <link rel="stylesheet" href="../static/css/style.css">
-    </head>
-    <body>
-        <h1>US State Capital Quiz</h1>
-        <p>Your results are as followed:</p>
+
+<head>
+    <title>Capital's Quiz</title>
+    <head rel="stylesheet" href="../static/css/style.css">
+</head>
+
+<body>
+    <h1>US State Capital Quiz</h1>
+    <p>Your results are as followed:</p>
+    <div class="form-container">
         <ul>
             {% for state in student_quiz_score %}
-                <li>{{state}}: {{student_answers[state]}} is {{student_quiz_score[state]}}</li>
+            <li>{{state}}: {{student_answers[state]}} is {{student_quiz_score[state]}}</li>
             {% endfor %}
         </ul>
         <span class="student__grade">
             {{student_grade}}
         </span>
-        
-        <a href="/index">New Game!</a>
-    </body>
+        <a href="/index">New Game! &rarr;</a>
+    </div>
+</body>
+
 </html>

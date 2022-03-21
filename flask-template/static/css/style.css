@@ -13,16 +13,82 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
- body{
+
+/** Color codes:
+* Blue: #0e79b2
+* White: #fbfef9
+* Black: #191923
+*/
+
+
+body{
+    background-image: linear-gradient(to right bottom, #0e79b2, #fbfef9, red);
     max-width: max-content;
     margin: auto;
  }
- form{
-     display: grid;
-     width: 30vw;
- }
- input{
-     margin-bottom: 10px;
-     outline: none;
- }
 
+.form-container{
+    display: flex;
+    justify-content: center;
+}
+
+form{
+    display: grid;
+    width: 30vw;
+}
+
+input {
+	margin-bottom: 1rem;
+	margin-top: 1.5rem;
+	margin-right: 0 auto;
+	outline: none;
+	text-align: center;
+}
+
+::-webkit-input-placeholder {
+	color: red;
+}
+
+h1 {
+	margin-top: 5rem;
+	text-align: center;
+	text-decoration: solid black;
+	font-size: 3.5rem;
+	text-transform: uppercase;
+	font-weight: 700;
+	background-image: linear-gradient(to right bottom, #0e79b2, red);
+	-webkit-background-clip: text;
+	color: transparent;
+	letter-spacing: .2rem;
+}
+
+p {
+    text-align: center;
+    text-transform: capitalize;
+}
+
+ul{
+    list-style: none;
+}
+
+a{
+    display: block;
+    text-decoration: None;
+    margin-left: 5rem;
+    margin-top: 1.55rem;
+    border-bottom: 1px solid black;
+    text-align: center;
+    color: #0e79b2;
+}
+
+li{
+    margin-top: 1.5rem;
+    margin-bottom: 2rem;
+    margin-left: 12rem;
+}
+
+span{
+    margin-left: 12rem;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
